@@ -19,6 +19,14 @@
     line-height: 18px;
   }
 
+  .container {
+    text-align: center;
+  }
+
+  .content {
+    text-align: center;
+  }
+
   .wrapper {
     background: rgba(255,255,255,0.85);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
