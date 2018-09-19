@@ -7,6 +7,16 @@
       <p>Post, edit, and save your Wods to keep track of progress and consistency.</p>
       <p>Organize your fitness lifestyle today, and see what others are doing as well!</p>
 
+      <!-- < if logged_in? > -->
+        <p><strong>Welcome, <!--<=current_user.name>-->Username! Log your Wods by clicking the link below.</strong></p>
+
+      <!-- < else > -->
+        <p><strong>Please log in to your account or sign up for one below.</strong></p>
+        <div class="home-buttons">
+          <h3 id="left-button"><a href="#">Login Page</a></h3>
+          <h3><a href="#">Signup Page</a></h3>
+        </div>
+      <!-- < end > -->
 
     </div>
 </div>

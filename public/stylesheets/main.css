@@ -19,6 +19,15 @@
     line-height: 18px;
   }
 
+  .home-buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  #left-button {
+    padding-right: 2%;
+  }
+
   .container {
     text-align: center;
   }
