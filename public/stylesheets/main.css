@@ -12,8 +12,11 @@
   }
 
   body {
-    /*background: light-blue;*/
-    background-image: url('../images/fitness.png');
+    background: url('../images/fitness.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -37,14 +40,15 @@
   }
 
   .wrapper {
+    margin-top: 200px;
     background: rgba(255,255,255,0.85);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin: 16px auto;
+    margin: 20% auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
-    width: 85%;
+    width: 80%;
   }
 
   h1 {
