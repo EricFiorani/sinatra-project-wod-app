@@ -1,0 +1,11 @@
+Wod.create(name: "Chest")
+Wod.create(name: "Back")
+Wod.create(name: "Legs")
+Wod.create(name: "Arms")
+Wod.create(name: "Core")
+
+Wod.create(name: "HIIT")
+Wod.create(name: "Plyometrics")
+Wod.create(name: "Olympic Lifting")
+Wod.create(name: "Body Building")
+Wod.create(name: "Endurance Training")
