@@ -3,11 +3,12 @@ require './config/environment'
 class UsersController < ApplicationController
 
   get '/signup' do
-    if logged_in?
-      redirect to '/wods'
-    else
-      erb :'/users/create_user'
-    end
+    # if logged_in?
+    #   redirect to '/wods'
+    # else
+    #   erb :'/users/create_user'
+    # end
+    "Hello World!"
   end
 
   post '/signup' do
@@ -26,11 +27,12 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    if logged_in?
-      redirect to '/wods'
-    else
-      erb :'/users/login'
-    end
+    # if logged_in?
+    #   redirect to '/wods'
+    # else
+    #   erb :'/users/login'
+    # end
+    "Hello World!"
   end
 
   post '/login' do
