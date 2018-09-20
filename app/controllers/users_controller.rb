@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     else
       erb :'/users/create_user'
     end
-    # "Hello World!"
   end
 
   post '/signup' do
@@ -27,12 +26,11 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    # if logged_in?
-    #   redirect to '/wods'
-    # else
-    #   erb :'/users/login'
-    # end
-    "Hello World!"
+    if logged_in?
+      redirect to '/wods'
+    else
+      erb :'/users/login'
+    end
   end
 
   post '/login' do
