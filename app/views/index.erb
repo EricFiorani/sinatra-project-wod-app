@@ -8,9 +8,11 @@
       <p>Organize your fitness lifestyle today, and see what others are doing as well!</p>
 
       <% if logged_in? %>
-        <p><strong>Welcome, <%=current_user.name%>Log your Wods by clicking the link below.</strong></p>
-        <h3><a href="/users/<%=current_user.slug%>">Wod Homepage</a></h3>
-        <h3><a href="/wods">Wod Feed</a></h3>
+        <p><strong>Welcome, <%=current_user.username%>! Log your Wods by clicking the link below.</strong></p>
+        <div class="home-buttons">
+          <h3 id="left-button"><a href="/users/<%=current_user.slug%>">Wod Profile</a></h3>
+          <h3><a href="/wods">Wod Feed</a></h3>
+        </div>
 
       <% else %>
         <p><strong>Please log in to your account or sign up for one below.</strong></p>

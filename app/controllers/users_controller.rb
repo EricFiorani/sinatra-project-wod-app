@@ -4,7 +4,8 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if logged_in?
-      redirect to '/wods'
+      @user = current_user
+      redirect to "/wods/#{@user.slug}"
     else
       erb :'/users/create_user'
     end
@@ -27,7 +28,8 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      redirect to '/wods'
+      @user = current_user
+      redirect to "/wods/#{@user.slug}"
     else
       erb :'/users/login'
     end
@@ -45,7 +47,7 @@ class UsersController < ApplicationController
   end
 
   get '/users/:slug' do
-    @user = User.find_by_slug(:slug)
+    @user = User.find_by_slug(params[:slug])
     if @user.logged_in?
       erb :'/users/show'
     else
