@@ -5,7 +5,6 @@ class WodController < ApplicationController
 #All Wod
   get '/wods' do
     if logged_in?
-      @user = current_user
       erb :'/wods/wods'
     else
       redirect to "/login"
@@ -35,11 +34,14 @@ class WodController < ApplicationController
 
 #Show Wod
   get '/wods/:id' do
-    if logged_in?
-      @wod = Wod.find(params[:id])
-      erb :'/wods/show_wod'
+    @wod = Wod.find_by(id: params[:id])
+
+    if !@wod
+      redirect to "/"
+    elsif current_user == @wod
+      erb :"/wods/show"
     else
-      redirect to "/login"
+      redirect to "/"
     end
   end
 
