@@ -1,4 +1,5 @@
 require './config/environment'
+require 'sinatra/base'
 
 class UsersController < ApplicationController
 
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
       )
       @user.save
       session[:user_id] = @user.id
-      redirect to '/wods'
+      redirect to "/wods/#{@user.slug}"
     end
   end
 
@@ -48,10 +49,10 @@ class UsersController < ApplicationController
 
   get '/users/:slug' do
     @user = User.find_by_slug(params[:slug])
-    if @user.logged_in?
+    if current_user == @user
       erb :'/users/show'
     else
-      redirect to '/wods'
+      redirect to '/'
     end
   end
 end

@@ -1,0 +1,10 @@
+<h1>Welcome, <%= @user.username %>!</h1>
+
+<h2><%= @user.username %>'s Wods</h2>
+
+<% @user.wods.each do |wod| %>
+  <a href="/wods/<%=wod.id%>"> <%= wod.content %></a>
+  <br></br>
+<% end %>
+
+<h4><a href="/logout">Log Out</a></h4>
