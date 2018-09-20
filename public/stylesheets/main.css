@@ -27,10 +27,6 @@
     justify-content: center;
   }
 
-  #left-button {
-    padding-right: 2%;
-  }
-
   .container {
     text-align: center;
   }
@@ -49,6 +45,14 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 80%;
+  }
+
+  #left-button {
+    padding-right: 2%;
+  }
+
+  #signup {
+    font-size: 20px;
   }
 
   h1 {
@@ -74,6 +78,7 @@
 
   .foot-note {
     clear: both;
+    text-align: right;
   }
 
   footer.foot-note {
