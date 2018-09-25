@@ -27,6 +27,15 @@
     justify-content: center;
   }
 
+  .public-wod-buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .public-wod-buttons h4 {
+    padding-right: 1rem;
+  }
+
   .container {
     text-align: center;
   }
