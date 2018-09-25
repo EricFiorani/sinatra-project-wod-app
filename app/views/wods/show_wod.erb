@@ -1,10 +1,10 @@
 <h1>WOD Feed Page</h1>
 <p><%= @wod.content %></p>
-<a href='/wods/<%= @wod.id %>/edit'>Edit Wod</a>
+<a href='/wods/<%= @wod.id %>/edit'>Edit WOD</a>
 <br></br>
-<a href = "/wods/new" > New wod</a>
+<a href = "/wods/new" > New WOD</a>
 <br></br>
-<a href = "/wods" > All wods</a>
+<a href = "/wods" > All My WODs</a>
 <br></br>
 
 <form method="post" action="/wods/<%=@wod.id%>">
