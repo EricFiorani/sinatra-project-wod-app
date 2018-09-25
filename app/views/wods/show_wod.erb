@@ -1,14 +1,16 @@
 <h1>WOD - <%= @wod.content %></h1>
 <hr />
 <br />
+
+<div class="wod-buttons">
+  <h4><a href='/wods/<%= @wod.id %>/edit'>Edit WOD</a></h4>
+  <h4><a href="/users/<%=current_user.slug%>">WOD Profile</a></h4>
+  <h4><a href = "/wods">WOD Feed</a></h4>
+  <h4><a href = "/logout" >Logout</a></h4>
+</div>
+
 <p><strong>Details of this WOD:</strong></p>
-  <p><%= @wod.exercise_details %> </p>
-<a href='/wods/<%= @wod.id %>/edit'>Edit WOD</a>
-<br></br>
-<a href = "/wods/new" > New WOD</a>
-<br></br>
-<a href = "/users/<%=current_user.slug%>" > All My WODs</a>
-<br></br>
+<p id="exercise_details"><%= @wod.exercise_details %></p>
 
 <form method="post" action="/wods/<%=@wod.id%>">
   <input id="hidden" type="hidden" name="_method" value="delete">

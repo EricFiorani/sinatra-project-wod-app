@@ -36,6 +36,10 @@
     padding-right: 1rem;
   }
 
+  #exercise_details{
+    white-space: pre-wrap;
+  }
+
   .container {
     text-align: center;
   }
