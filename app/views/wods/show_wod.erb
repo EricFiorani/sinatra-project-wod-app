@@ -4,7 +4,7 @@
 <br></br>
 <a href = "/wods/new" > New WOD</a>
 <br></br>
-<a href = "/wods" > All My WODs</a>
+<a href = "/users/<%=current_user.slug%>" > All My WODs</a>
 <br></br>
 
 <form method="post" action="/wods/<%=@wod.id%>">
