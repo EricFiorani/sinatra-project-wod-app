@@ -1,5 +1,7 @@
 <h1>Welcome, <%= @user.username %>!</h1>
 
+<p><a href='/wods/new'>Create New Wod</a></p>
+
 <h2><%= @user.username %>'s Wods</h2>
 
 <% @user.wods.each do |wod| %>
