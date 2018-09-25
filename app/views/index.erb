@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Welcome To The Wod App!</h1>
+    <h1>Welcome To The WOD App!</h1>
     <h2>This app will allow you to log your workout of the day.</h2>
 
     <div class="content">
@@ -8,11 +8,12 @@
       <p>Organize your fitness lifestyle today, and see what others are doing as well!</p>
 
       <% if logged_in? %>
-        <p><strong>Welcome, <%=current_user.username%>! Log your Wods by clicking the link below.</strong></p>
+        <h3>Welcome, <%=current_user.username%>!</h3>
         <div class="home-buttons">
-          <h3 id="left-button"><a href="/users/<%=current_user.slug%>">Wod Profile</a></h3>
-          <h3><a href="/wods">Wod Feed</a></h3>
+          <h4 id="left-button"><a href="/users/<%=current_user.slug%>">WOD Profile</a></h4>
+          <h4><a href="/wods">WOD Feed</a></h4>
         </div>
+        <!-- <p>*<em>WOD Profile</em> to create and see your own logs. <em>WOD Feed</em> to see all logs*</p> -->
 
       <% else %>
         <p><strong>Please log in to your account or sign up for one below.</strong></p>
