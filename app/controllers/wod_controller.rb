@@ -60,6 +60,7 @@ class WodController < ApplicationController
       redirect to "/wods/#{@wod.id}/edit"
     else
       @wod.content = params["content"]
+      @wod.exercise_details = params["exercise_details"]
       @wod.save
       redirect to "/wods/#{@wod.id}"
     end

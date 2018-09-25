@@ -2,14 +2,14 @@
 
 <form action="/wods/<%= @wod.id %>" method="POST">
 
-  <h3><em>Please edit your Wod below</em></h3>
+  <h3><em>Please edit your WOD below</em></h3>
 
   <label>WOD Title:</label>
   <br></br>
-  <input type="text" name="title" id="wod_title" value="<%= @tweet.content %>">
+  <input type="text" name="content" id="wod_content" value="<%= @wod.content %>">
   <br></br>
   <label>Details: Exercises, Sets, Reps, etc.</label>
-  <textarea name="details" rows="4" cols="50"> </textarea>
+  <textarea name="exercise_details" rows="4" cols="50"> </textarea>
 
   <input type="submit" value="submit">
 </form>
