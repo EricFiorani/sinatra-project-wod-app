@@ -1,6 +1,6 @@
 require './config/environment'
 
-class WodsController < ApplicationController
+class WodController < ApplicationController
 
 #All Wods
   get '/wods' do
