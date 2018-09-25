@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180919120424) do
 
   create_table "wods", force: :cascade do |t|
     t.string  "content"
+    t.string  "exercise_details"
     t.integer "user_id"
   end
 
