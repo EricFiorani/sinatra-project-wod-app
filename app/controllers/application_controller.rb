@@ -6,11 +6,11 @@ require 'rack-flash'
 class ApplicationController < Sinatra::Base
 
   configure do
-    set :public_folder, 'public'
+    # set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    use Rack::Flash
     set :session_secret, "password_security"
+    use Rack::Flash
   end
 
   #Homepage
@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def logged_in?
-      !!current_user
+      !!session[:user_id]
     end
 
     def current_user
