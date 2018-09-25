@@ -3,11 +3,13 @@
 <form action="/login" method="POST">
 
   <h3><em>Please enter your information below</em></h3>
+  <br />
 
-  <label>Email:</label>
-  <input type="text" name="email" id="user_email">
-  <br></br>
-
+  <% if flash.has?(:message) %>
+    <%= flash[:message]%>
+  <% end %>
+  <br />
+  <br />
   <label>Username:</label>
   <input type="text" name="username" id="user_username">
   <br></br>

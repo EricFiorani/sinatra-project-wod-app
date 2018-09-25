@@ -1,4 +1,6 @@
 require './config/environment'
+require 'sinatra/base'
+require 'rack-flash'
 
 class UsersController < ApplicationController
 
@@ -30,21 +32,22 @@ class UsersController < ApplicationController
 #Login Page
   get '/login' do
     if logged_in?
-      redirect to '/wods'
+      @user = current_user
+      redirect to "/users/#{@user.slug}"
     else
-      erb :'/users/login'
+      erb :"/users/login"
     end
   end
 
 #Login Page- Form Submit
   post '/login' do
-    user = User.find_by(username: params[:username])
-
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect "/wods"
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password]) && @user.authenticate(params[:username])
+      session[:user_id] = @user.id
+      redirect to "/users/#{@user.slug}"
     else
-      redirect "/login"
+      flash[:message] = "***Incorrect username or password, please try again!***"
+      erb :"/users/login"
     end
   end
 
