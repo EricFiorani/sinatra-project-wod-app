@@ -1,5 +1,11 @@
 <h1>Create WOD</h1>
 
+<div class="wod-buttons">
+  <h4><a href="/users/<%=current_user.slug%>">WOD Profile</a></h4>
+  <h4><a href = "/wods">WOD Feed</a></h4>
+  <h4><a href = "/logout" >Logout</a></h4>
+</div>
+
 <form action="/wods" method="POST">
 
   <h3><em>Please enter your new wod below</em></h3>
@@ -12,7 +18,7 @@
 
   <label>Details: Include type of exercise, sets, reps, etc.</label>
   <br></br>
-  <textarea name="exercise_details" rows="4" cols="50"> </textarea>
+  <textarea name="exercise_details" rows="4" cols="50"></textarea>
   <br></br>
   <br></br>
 
