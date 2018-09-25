@@ -1,79 +1,62 @@
 require './config/environment'
 require 'sinatra/base'
 
-class WodsController < ApplicationController
+class UsersController < ApplicationController
 
-#All Wods
-  get '/wods' do
+#Signup Page - does not let a logged in user view the signup page
+  get '/signup' do
     if logged_in?
-      @user = current_user
-      erb :'/wods/wods'
+      redirect to '/wods'
     else
-      redirect to "/login"
+      erb :'/users/create_user'
     end
   end
 
-#New Wod
-  get '/wods/new' do
+#Signup Page - Form Submit
+  post '/signup' do
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      redirect '/signup'
+    else
+      @user = User.create(
+        :username => params["username"],
+        :email => params["email"],
+        :password => params["password"]
+      )
+      @user.save
+      session[:user_id] = @user.id
+      redirect to '/wods'
+    end
+  end
+
+#Login Page
+  get '/login' do
     if logged_in?
-      erb :'/wods/create_wod'
+      redirect to '/wods'
     else
-      redirect to "/login"
+      erb :'/users/login'
     end
   end
 
-#New Wod- Form Submit
-  post '/wods' do
-    if params[:content] == ""
-      redirect '/wods/new'
+#Login Page- Form Submit
+  post '/login' do
+    user = User.find_by(username: params[:username])
+
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect "/wods"
     else
-      @wod = Wod.create(:content => params["content"])
-      @wod.user_id = current_user.id
-      @wod.save
-      redirect to "/wods/#{@wod.id}"
+      redirect "/login"
     end
   end
 
-#Show Wod
-  get '/wods/:id' do
-    if logged_in?
-      @wod = Wod.find(params[:id])
-      erb :'/wods/show_wod'
+#User's Show page
+  get '/users/:slug' do
+    @user = User.find_by_slug(:slug)
+    if @user.logged_in?
+      erb :'/users/show'
     else
-      redirect to "/login"
+      redirect to '/wods'
     end
   end
-
-#Edit Wod
-  get '/wods/:id/edit' do
-    if logged_in?
-      @wod = Wod.find(params[:id])
-      erb :'/wods/edit_wod'
-    else
-      redirect to "/login"
-    end
-  end
-
-#Edit Wod- Form Submit
-  post '/wods/:id' do
-    @wod = Wod.find(params[:id])
-    if params[:content] == ""
-      redirect to "/wods/#{@wod.id}/edit"
-    else
-      @wod.content = params["content"]
-      @wod.save
-      redirect to "/wods/#{@wod.id}"
-    end
-  end
-
-#Delete Wod Action
-  delete '/wods/:id' do
-    @wod = Wod.find_by_id(params[:id])
-    if @wod.user_id == current_user.id
-      @wod.delete
-    end
-      redirect to "/wods"
-  end
-
 
 end

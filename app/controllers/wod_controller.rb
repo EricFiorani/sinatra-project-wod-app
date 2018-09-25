@@ -1,10 +1,11 @@
 require './config/environment'
 
-class WodController < ApplicationController
+class WodsController < ApplicationController
 
-#All Wod
+#All Wods
   get '/wods' do
     if logged_in?
+      @user = current_user
       erb :'/wods/wods'
     else
       redirect to "/login"
@@ -34,14 +35,11 @@ class WodController < ApplicationController
 
 #Show Wod
   get '/wods/:id' do
-    @wod = Wod.find_by(id: params[:id])
-
-    if !@wod
-      redirect to "/"
-    elsif current_user == @wod
-      erb :"/wods/show"
+    if logged_in?
+      @wod = Wod.find(params[:id])
+      erb :'/wods/show_wod'
     else
-      redirect to "/"
+      redirect to "/login"
     end
   end
 
