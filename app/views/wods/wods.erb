@@ -1,14 +1,7 @@
-<h1>WOD Feed</h1>
-<p><%= @wod.content %></p>
-<a href='/wods/<%= @wod.id %>/edit'>Edit Wod</a>
-<br></br>
-<a href = "/wods/new" > New wod</a>
-<br></br>
-<a href = "/wods" > All wods</a>
-<br></br>
-
-<form method="post" action="/wods/<%=@wod.id%>">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-
-  <input type="submit" value="Delete Wod">
-<form>
+<h1>WODs</h1>
+<h3>Welcome, <%=@user.username%> </h3>
+<% Wod.all.each do |wod| %>
+  <a href="/wods/<%=wod.id%>"> <%= wod.content %> </a>
+  <br></br>
+<% end %>
+<a href = "/wods/new" >Write a new WOD</a>
