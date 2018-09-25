@@ -2,23 +2,19 @@
 
 <form action="/wods" method="POST">
 
-  <h3><em>Please enter your new WOD below</em></h3>
+  <h3><em>Please enter your new wod below</em></h3>
 
   <label>WOD Title:</label>
-    <br />
-    <input type="text" name="title" id="wod_title">
-    <br />
-    <br />
-  <label>WOD Type:</label>
-    <br />
-    <textarea name="wod_type" rows="4" cols="25"> </textarea>
-    <br />
-    <br />
-  <label>Details: Exercises, Sets, Reps, etc.</label>
-    <br />
-    <textarea name="details" rows="4" cols="50"> </textarea>
+  <br></br>
+  <input type="text" name="content" id="wod_content">
+  <br></br>
+  <br></br>
 
-    <br />
+  <label>Details: Include type of exercise, sets, reps, etc.</label>
+  <br></br>
+  <textarea name="message" rows="4" cols="50"> </textarea>
+  <br></br>
+  <br></br>
 
   <input type="submit" value="submit">
 </form>
