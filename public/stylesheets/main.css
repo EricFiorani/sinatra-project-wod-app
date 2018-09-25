@@ -27,12 +27,12 @@
     justify-content: center;
   }
 
-  .public-wod-buttons {
+  .wod-buttons {
     display: flex;
     justify-content: center;
   }
 
-  .public-wod-buttons h4 {
+  .wod-buttons h4 {
     padding-right: 1rem;
   }
 

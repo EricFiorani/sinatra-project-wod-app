@@ -1,6 +1,10 @@
 <h1>Welcome, <%= @user.username %>!</h1>
 
-<p><a href='/wods/new'>Create New Wod</a></p>
+<div class="wod-buttons">
+  <h4><a href="/wods">Public Feed</a></h4>
+  <h4><a href='/wods/new'>Create New WOD</a></h4>
+  <h4><a href="/logout">Log Out</a></h4>
+</div>
 
 <h2><%= @user.username %>'s Wods</h2>
 
@@ -8,6 +12,3 @@
   <a href="/wods/<%=wod.id%>"> <%= wod.content %></a>
   <br></br>
 <% end %>
-
-<h4><a href="/wods">Public Feed</a></h4>
-<h4><a href="/logout">Log Out</a></h4>
