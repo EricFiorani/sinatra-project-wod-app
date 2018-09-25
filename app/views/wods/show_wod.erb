@@ -10,6 +10,9 @@
 </div>
 
 <p><strong>Details of this WOD:</strong></p>
+<br />
+<p>Duration:</p><%= @wod.duration %>
+<br />
 <p id="exercise_details"><%= @wod.exercise_details %></p>
 
 <form method="post" action="/wods/<%=@wod.id%>">
