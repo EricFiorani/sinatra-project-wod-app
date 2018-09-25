@@ -50,8 +50,8 @@ class UsersController < ApplicationController
 
 #User's Show page
   get '/users/:slug' do
-    @user = User.find_by_slug(:slug)
-    if @user.logged_in?
+    @user = User.find_by_slug(params[:slug])
+    if current_user == @user
       erb :'/users/show'
     else
       redirect to '/wods'
