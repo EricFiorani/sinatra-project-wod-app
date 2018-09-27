@@ -9,11 +9,13 @@
   <h4><a href = "/wods">WOD Feed</a></h4>
   <h4><a href = "/logout" >Logout</a></h4>
 </div>
+
 <% if flash.has?(:message) %>
   <%= flash[:message]%>
 <% end %>
+
 <h2>Details of this WOD:</h2>
-  <br />
+    <br />
   <div class="content">
     <p><strong>Duration:</strong> <%= @wod.duration %> -- <strong>Level:</strong> <%= @wod.level %></p>
   </div>
@@ -25,8 +27,10 @@
       <p id="comments"><%= @wod.comments %></p>
   </div>
 
-<form method="post" action="/wods/<%=@wod.id%>">
-  <input id="hidden" type="hidden" name="_method" value="delete">
+<% if @wod.user_id == current_user.id %>
+  <form method="post" action="/wods/<%=@wod.id%>">
+    <input id="hidden" type="hidden" name="_method" value="delete">
 
-  <input type="submit" value="Delete WOD">
-<form>
+    <input type="submit" value="Delete WOD">
+  <form>
+<% end %>
