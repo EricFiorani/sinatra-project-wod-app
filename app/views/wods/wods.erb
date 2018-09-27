@@ -7,7 +7,8 @@
 </div>
 
 <h3>Public WODs Feed</h3>
+<p><small>Links Read As "Username - Post Title - Level of Difficulty"</small></p>
 <% Wod.all.each do |wod| %>
-  <a href="/wods/<%=wod.id%>"><%= wod.user.username %> - <%= wod.content %></a>
+  <a href="/wods/<%=wod.id%>"><%= wod.user.username %> - <%= wod.content %> - <%= wod.level %></a>
   <br></br>
 <% end %>

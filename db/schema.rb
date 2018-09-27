@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20180919120424) do
     t.string  "content"
     t.string  "exercise_details"
     t.string  "duration"
+    t.string  "level"
+    t.string  "comments"
     t.integer "user_id"
   end
 

@@ -9,11 +9,18 @@
   <h4><a href = "/logout" >Logout</a></h4>
 </div>
 
-<p><strong>Details of this WOD:</strong></p>
-<br />
-<p>Duration: <%= @wod.duration %></p>
-<br />
-<p id="exercise_details"><%= @wod.exercise_details %></p>
+<h2>Details of this WOD:</h2>
+  <br />
+  <div class="content">
+    <p><strong>Duration:</strong> <%= @wod.duration %> -- <strong>Level:</strong> <%= @wod.level %></p>
+  </div>
+    <br />
+  <div class="content">
+    <h3>Exercise Details:</h3>
+      <p id="exercise_details"><%= @wod.exercise_details %></p>
+    <h3>Comments, Thoughts, Strategies, Goals:</h3>
+      <p id="comments"><%= @wod.comments %></p>
+  </div>
 
 <form method="post" action="/wods/<%=@wod.id%>">
   <input id="hidden" type="hidden" name="_method" value="delete">

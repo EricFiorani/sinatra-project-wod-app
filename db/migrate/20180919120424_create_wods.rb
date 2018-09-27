@@ -4,6 +4,8 @@ class CreateWods < ActiveRecord::Migration
       t.string :content
       t.string :exercise_details
       t.string :duration
+      t.string :level
+      t.string :comments
       t.integer :user_id
     end
   end

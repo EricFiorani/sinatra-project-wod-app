@@ -26,7 +26,8 @@ class WodController < ApplicationController
     if params[:content] == ""
       redirect '/wods/new'
     else
-      @wod = Wod.create(:content => params["content"], :exercise_details => params["exercise_details"], :duration => params["duration"])
+      @wod = Wod.create(:content => params["content"], :exercise_details => params["exercise_details"],
+      :duration => params["duration"], :level => params["level"], :comments => params["comments"])
       @wod.user_id = current_user.id
       @wod.save
       redirect to "/wods/#{@wod.id}"
@@ -62,6 +63,8 @@ class WodController < ApplicationController
       @wod.content = params["content"]
       @wod.exercise_details = params["exercise_details"]
       @wod.duration = params["duration"]
+      @wod.level = params["level"]
+      @wod.comments = params["comments"]
       @wod.save
       redirect to "/wods/#{@wod.id}"
     end
