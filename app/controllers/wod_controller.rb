@@ -46,11 +46,12 @@ class WodController < ApplicationController
 
 #Edit Wod
   get '/wods/:id/edit' do
-    if logged_in?
-      @wod = Wod.find(params[:id])
+    @wod = Wod.find_by(id: params[:id])
+    if current_user.id == @wod.user_id
       erb :'/wods/edit_wod'
     else
-      redirect to "/login"
+      flash[:message] = "***That Is Not Yours. You Can Not Edit A Post That Doesn't Belong To You!***"
+      erb :'/wods/show_wod'
     end
   end
 

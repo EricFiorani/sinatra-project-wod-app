@@ -9,7 +9,9 @@
   <h4><a href = "/wods">WOD Feed</a></h4>
   <h4><a href = "/logout" >Logout</a></h4>
 </div>
-
+<% if flash.has?(:message) %>
+  <%= flash[:message]%>
+<% end %>
 <h2>Details of this WOD:</h2>
   <br />
   <div class="content">
