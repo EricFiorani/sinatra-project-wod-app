@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    enable :sessions
+    enable :sessions #issues the browser a cookie, a secret key or "receipt" that corresponds to a session on the server. A hash
     use Rack::Flash
     set :session_secret, "password_security"
   end
