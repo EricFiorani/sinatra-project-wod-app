@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
-gem 'bcrypt'
+gem 'bcrypt' #necessary to use has_secure_password
 gem "tux"
 gem 'rack-flash3'
 gem 'colorize'
