@@ -43,6 +43,8 @@ class UsersController < ApplicationController
   post '/login' do
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
+      #authenticate will try to match the salted hashed versions of the password
+      #via has_secure_password from users model, if it can't it will return false
       session[:user_id] = @user.id
       redirect to "/users/#{@user.slug}"
     else
